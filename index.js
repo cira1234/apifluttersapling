@@ -123,7 +123,7 @@ app.get('/selectmember',(req,res) =>{
     )
 }),
 
-    app.get('/insertuser/:email/:pass/:name/:tel/:imguser',(req,res) =>{
+    app.get('/insertuser/:email/:pass/:name/:tel',(req,res) =>{
     var email=req.params.email;
      var pass=req.params.pass;
      var name=req.params.name;
