@@ -131,7 +131,7 @@ app.get('/selectmember',(req,res) =>{
       var img=req.params.imguser;
     connection.query(
         'insert into user(email,password,name,tel,imguser,pregis,active,status) values(?,?,?,?,?,?,?,?)',
-        [email,pass,name,tel,'','','',''],
+        [email,pass,name,tel],
         function(err,results,fields){
             console.log(results )
             res.send(results)
