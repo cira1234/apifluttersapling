@@ -75,6 +75,20 @@ app.get('/selectmember',(req,res) =>{
     )
 }),
 
+      app.get('/selectprofile/:iduser',(req,res) =>{
+           var iduser=req.params.iduser;
+    connection.query(
+        'select * from user where id_user=? ',[iduser],
+    
+        function(err,results,fields){
+            console.log(results)
+            //res.send(results)
+            res.send(results);
+            //    res.send({"msg":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"})
+        }
+    )
+}),
+
 
       app.get('/selectcomment/:idpost',(req,res) =>{
             var idpost=req.params.idpost;
