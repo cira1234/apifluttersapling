@@ -177,7 +177,7 @@ app.get('/selectmember',(req,res) =>{
      var imguser=req.params.imguser;
      var iduser=req.params.iduser;
     connection.query(
-        'insert into imguser(imguser,id_user) values(?,?)',
+        'insert into imguser(imguser,id_imguser) values(?,?)',
         [imguser,iduser],
         function(err,results,fields){
             console.log(results )
