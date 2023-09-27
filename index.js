@@ -328,6 +328,19 @@ app.get('/getid/:email/:pass',(req,res) =>{
     )
 }),
 
+
+//        app.get('/editprofile/:imguser/:iduser',(req,res) =>{
+//              var imguser=req.params.imguser;
+//              var iduser=req.params.iduser;
+//     connection.query(
+//         'update  set section=?,textpost=? where id_post=?',[imguser,iduser],
+//         function(err,results,fields){
+//             console.log(results )
+//             res.send(results)
+//         }
+//     )
+// }),
+
             app.get('/editimgpost/:img/:id',(req,res) =>{
      
              var img=req.params.img;
