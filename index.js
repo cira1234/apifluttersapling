@@ -173,6 +173,21 @@ app.get('/selectmember',(req,res) =>{
 })
 
 
+ app.get('/insertprofile/:imguser/:iduser',(req,res) =>{
+     var imguser=req.params.imguser;
+     var iduser=req.params.iduser;
+    connection.query(
+        'insert into imguser(imguser,id_user) values(?,?)',
+        [imguser,iduser],
+        function(err,results,fields){
+            console.log(results )
+            res.send(results)
+              console.log('insert success');
+        }
+    )
+})
+
+
 
  app.get('/insertvideo/:name/:detail/:video/:img',(req,res) =>{
     var name=req.params.name;
