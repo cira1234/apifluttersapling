@@ -93,7 +93,7 @@ app.get('/selectmember',(req,res) =>{
      app.get('/selectprofile/:iduser',(req,res) =>{
            var iduser=req.params.iduser;
     connection.query(
-        'SELECT * FROM imguser  WHERE id_imguser=? ',[iduser],
+        'SELECT * FROM user  WHERE id_user=? ',[iduser],
     
         function(err,results,fields){
             console.log(results)
