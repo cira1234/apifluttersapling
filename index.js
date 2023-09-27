@@ -257,16 +257,17 @@ app.get('/selectmember',(req,res) =>{
 })
 
 
-//     app.get('/updatepostid/:id',(req,res) =>{
-//         var id=req.params.id;
-//     connection.query(
-//         'update post set  where id_user=?',[id],
-//         function(err,results,fields){
-//             console.log(results )
-//             res.send(results)
-//         }
-//     )
-// }),
+    app.get('/updateprofile/:imguser/:id',(req,res) =>{
+        var imguser=req.params.imguser;
+        var id=req.params.id;
+    connection.query(
+        'update user  set imguser  where id_user=?',[id],
+        function(err,results,fields){
+            console.log(results )
+            res.send(results)
+        }
+    )
+}),
 
 
 app.get('/deleteuser/:id',(req,res) =>{
