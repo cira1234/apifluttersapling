@@ -140,7 +140,7 @@ app.get('/selectmember',(req,res) =>{
      app.get('/selectimguser/:iduser',(req,res) =>{
              var iduser=req.params.iduser;
     connection.query(
-        'select * from post ',
+        'select * from  user where id_user=? ',[iduser],
     
         function(err,results,fields){
             console.log(results)
