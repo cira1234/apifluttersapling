@@ -347,6 +347,18 @@ app.get('/deleteuser/:id',(req,res) =>{
 }),
 
 
+           app.get('/deletehistory/:id',(req,res) =>{
+        var id=req.params.id;
+    connection.query(
+        'delete from imguser where id=?',[id],
+        function(err,results,fields){
+            console.log(results )
+            res.send(results)
+        }
+    )
+}),
+
+
 
     
 app.get('/getid/:email/:pass',(req,res) =>{
