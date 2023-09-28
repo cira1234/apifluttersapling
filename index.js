@@ -288,6 +288,18 @@ app.get('/selectmember',(req,res) =>{
     )
 }),
 
+    app.get('/profiledefault/:id',(req,res) =>{
+        var imguser=req.params.imguser;
+        var id=req.params.id;
+    connection.query(
+        'update user  set imguser=?  where id_user=?',['default.png',id],
+        function(err,results,fields){
+            console.log(results )
+            res.send(results)
+        }
+    )
+}),
+
 
 app.get('/deleteuser/:id',(req,res) =>{
         var id=req.params.id;
