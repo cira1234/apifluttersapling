@@ -90,6 +90,9 @@ app.get('/selectmember',(req,res) =>{
     )
 }),
 
+
+    
+
 //       app.get('/selectprofile/:iduser',(req,res) =>{
 //            var iduser=req.params.iduser;
 //     connection.query(
@@ -309,6 +312,18 @@ app.get('/selectmember',(req,res) =>{
         var id=req.params.id;
     connection.query(
         'update user  set status=?  where id_user=?',['1',id],
+        function(err,results,fields){
+            console.log(results )
+            res.send(results)
+        }
+    )
+}),
+
+
+          app.get('/unbanuser/:id',(req,res) =>{
+        var id=req.params.id;
+    connection.query(
+        'update user  set status=?  where id_user=?',['0',id],
         function(err,results,fields){
             console.log(results )
             res.send(results)
