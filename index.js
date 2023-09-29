@@ -229,6 +229,22 @@ app.get('/selectmember',(req,res) =>{
     )
 }),
 
+
+
+     app.get('/selectvideoid/:id',(req,res) =>{
+           var idvideo=req.params.id;
+    connection.query(
+        'select * from videostudy where id_video=? ',[idvideo],
+    
+        function(err,results,fields){
+            console.log(results)
+            // res.send(results)
+              res.send(results)
+            //    res.send({"msg":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"})
+        }
+    )
+}),
+
     app.get('/insertuser/:email/:pass/:name/:tel',(req,res) =>{
     var email=req.params.email;
      var pass=req.params.pass;
