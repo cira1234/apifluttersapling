@@ -79,7 +79,7 @@ app.get('/selectmember',(req,res) =>{
 
      app.get('/selectuserban',(req,res) =>{
     connection.query(
-        'select * from user where status=? ',['2'],
+        'select * from user where status=? ',['1'],
     
         function(err,results,fields){
             console.log(results)
