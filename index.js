@@ -289,6 +289,18 @@ app.get('/selectmember',(req,res) =>{
     )
 }),
 
+
+         app.get('/banuser/:id',(req,res) =>{
+        var id=req.params.id;
+    connection.query(
+        'update user  set status=?  where id_user=?',['1',id],
+        function(err,results,fields){
+            console.log(results )
+            res.send(results)
+        }
+    )
+}),
+
     app.get('/profiledefault/:id',(req,res) =>{
         var imguser=req.params.imguser;
         var id=req.params.id;
