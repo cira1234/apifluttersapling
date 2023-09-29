@@ -156,6 +156,23 @@ app.get('/selectmember',(req,res) =>{
 }),
 
 
+        app.get('/selectpostreport',(req,res) =>{
+    connection.query(
+        'select * from post where report=? ',['1'],
+    
+        function(err,results,fields){
+            console.log(results)
+            //res.send(results)
+            res.send(results);
+              if(results.length==0){
+                res.send('false')
+              }
+            //    res.send({"msg":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"})
+        }
+    )
+}),
+
+
      app.get('/selectimguser/:iduser',(req,res) =>{
              var iduser=req.params.iduser;
     connection.query(
