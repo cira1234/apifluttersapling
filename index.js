@@ -158,7 +158,7 @@ app.get('/selectmember',(req,res) =>{
 
 
     
-    app.get('/selectfeedpost/:iduser',(req,res) =>{
+    app.get('/selectfeedpost',(req,res) =>{
             var iduser=req.params.iduser
     connection.query(
         'select * from post  ',
