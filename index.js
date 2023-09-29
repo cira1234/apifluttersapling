@@ -75,6 +75,21 @@ app.get('/selectmember',(req,res) =>{
     )
 }),
 
+
+
+     app.get('/selectuserban',(req,res) =>{
+    connection.query(
+        'select * from user where status=? ',['2'],
+    
+        function(err,results,fields){
+            console.log(results)
+            //res.send(results)
+            res.send(results);
+            //    res.send({"msg":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"})
+        }
+    )
+}),
+
 //       app.get('/selectprofile/:iduser',(req,res) =>{
 //            var iduser=req.params.iduser;
 //     connection.query(
