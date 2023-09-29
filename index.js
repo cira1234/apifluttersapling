@@ -158,7 +158,7 @@ app.get('/selectmember',(req,res) =>{
 
         app.get('/selectpostreport',(req,res) =>{
     connection.query(
-        'select * from post where report=? ',['1'],
+        'select * from post where report>=? ',['1'],
     
         function(err,results,fields){
             console.log(results)
