@@ -375,6 +375,17 @@ app.get('/selectmember',(req,res) =>{
     )
 }),
 
+               app.get('/report/:id',(req,res) =>{
+        var id=req.params.id;
+    connection.query(
+        'UPDATE post SET report=report+1 WHERE id_post=?',[id],
+        function(err,results,fields){
+            console.log(results )
+            res.send(results)
+        }
+    )
+}),
+
 
           app.get('/unbanuser/:id',(req,res) =>{
         var id=req.params.id;
