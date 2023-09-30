@@ -75,6 +75,20 @@ app.get('/selectmember',(req,res) =>{
     )
 }),
 
+
+    app.get('/selectmember',(req,res) =>{
+    connection.query(
+        'select * from member ',
+    
+        function(err,results,fields){
+            console.log(results)
+            //res.send(results)
+            res.send(results);
+            //    res.send({"msg":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"})
+        }
+    )
+}),
+
     
 
 
