@@ -296,6 +296,23 @@ app.get('/selectmember',(req,res) =>{
 })
 
 
+  app.get('/insertquiznoimg/:quiz/:default/:type/:answer/:choice1/:choice2/:choice3/:choice4',(req,res) =>{
+    var messege=req.params.messege;
+     var imgcom=req.params.imgcom;
+     var iduser=req.params.iduser;
+     var idpost=req.params.idpost;
+    connection.query(
+        'insert into comment(messege,imgcom,id_usercom,id_postcom,status) values(?,?,?,?,?)',
+        [messege,imgcom,iduser,idpost,''],
+        function(err,results,fields){
+            console.log(results )
+            res.send(results)
+              console.log('insert success');
+        }
+    )
+})
+
+
  app.get('/insertprofile/:imguser/:iduser',(req,res) =>{
      var imguser=req.params.imguser;
      var iduser=req.params.iduser;
