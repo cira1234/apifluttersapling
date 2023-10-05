@@ -319,7 +319,7 @@ app.get('/selectmember',(req,res) =>{
        var choice3=req.params.choice3;
        var choice4=req.params.choice4;
     connection.query(
-        'insert into comment(quiz,img,type,answer,choice1,choice2,choice3,choice4) values(?,?,?,?,?,?,?,?)',
+        'insert into quiz(quiz,img,type,answer,choice1,choice2,choice3,choice4) values(?,?,?,?,?,?,?,?)',
         [quiz,noimg,type,answer,choice1,choice2,choice3,choice4],
         function(err,results,fields){
             console.log(results )
