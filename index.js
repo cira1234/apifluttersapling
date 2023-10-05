@@ -337,6 +337,22 @@ app.get('/selectmember',(req,res) =>{
     )
 })
 
+   app.get('/insertcardquiz/:storyname/:textplain/:type/:idstory',(req,res) =>{
+    var storyname=req.params.storyname;
+     var textplain=req.params.textplain;
+     var type=req.params.type;
+     var idstory=req.params.idstory;
+    connection.query(
+        'insert into comment(messege,imgcom,id_usercom,id_postcom,status) values(?,?,?,?,?)',
+        [messege,imgcom,iduser,idpost,''],
+        function(err,results,fields){
+            console.log(results )
+            res.send(results)
+              console.log('insert success');
+        }
+    )
+})
+
 
   app.get('/insertquiznoimg/:quiz/:default/:type/:answer/:choice1/:choice2/:choice3/:choice4/:storyname',(req,res) =>{
     var quiz=req.params.quiz;
