@@ -343,7 +343,7 @@ app.get('/selectmember',(req,res) =>{
      var type=req.params.type;
      var idstory=req.params.idstory;
     connection.query(
-        'insert into comment(messege,imgcom,id_usercom,id_postcom,status) values(?,?,?,?,?)',
+        'insert into listquiz(storyname,textplain,type,id_storyquiz) values(?,?,?,?)',
         [messege,imgcom,iduser,idpost,''],
         function(err,results,fields){
             console.log(results )
