@@ -344,7 +344,7 @@ app.get('/selectmember',(req,res) =>{
      var idstory=req.params.idstory;
     connection.query(
         'insert into listquiz(storyname,textplain,type,id_storyquiz) values(?,?,?,?)',
-        [messege,imgcom,iduser,idpost,''],
+        [storyname,textplain,type,idstory],
         function(err,results,fields){
             console.log(results )
             res.send(results)
