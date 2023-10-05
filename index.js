@@ -349,7 +349,7 @@ app.get('/selectmember',(req,res) =>{
        var choice4=req.params.choice4;
        var storyname=req.params.storyname;
     connection.query(
-        'insert into quiz(quiz,img,type,answer,choice1,choice2,choice3,choice4,storyname,textplain) values(?,?,?,?,?,?,?,?,?)',
+        'insert into quiz(quiz,img,type,answer,choice1,choice2,choice3,choice4,storyname) values(?,?,?,?,?,?,?,?,?)',
         [quiz,noimg,type,answer,choice1,choice2,choice3,choice4,storyname],
         function(err,results,fields){
             console.log(results )
