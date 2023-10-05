@@ -91,7 +91,7 @@ app.get('/selectmember',(req,res) =>{
           app.get('/selectchoice/:type',(req,res) =>{
                var type=req.params.type;
     connection.query(
-        'select * from quiz where type=?'[type],
+        'select * from quiz where type=?',[type],
     
         function(err,results,fields){
             console.log(results)
