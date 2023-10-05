@@ -306,8 +306,8 @@ app.get('/selectmember',(req,res) =>{
        var choice3=req.params.choice3;
        var choice4=req.params.choice4;
     connection.query(
-        'insert into comment(messege,imgcom,id_usercom,id_postcom,status) values(?,?,?,?,?)',
-        [messege,imgcom,iduser,idpost,''],
+        'insert into comment(quiz,img,type,answer,choice1,choice2,choice3,choice4) values(?,?,?,?,?,?,?,?)',
+        [quiz,noimg,type,answer,choice1,choice2,choice3,choice4],
         function(err,results,fields){
             console.log(results )
             res.send(results)
