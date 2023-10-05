@@ -103,6 +103,21 @@ app.get('/selectmember',(req,res) =>{
 }),
 
 
+      app.get('/selectchoicestory/:story',(req,res) =>{
+               var story=req.params.story;
+    connection.query(
+        'select * from quiz where storyname=?',[story],
+    
+        function(err,results,fields){
+            console.log(results)
+            //res.send(results)
+            res.send(results);
+            //    res.send({"msg":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"})
+        }
+    )
+}),
+
+
     app.get('/selectmember',(req,res) =>{
     connection.query(
         'select * from member ',
