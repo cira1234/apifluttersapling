@@ -297,10 +297,14 @@ app.get('/selectmember',(req,res) =>{
 
 
   app.get('/insertquiznoimg/:quiz/:default/:type/:answer/:choice1/:choice2/:choice3/:choice4',(req,res) =>{
-    var messege=req.params.messege;
-     var imgcom=req.params.imgcom;
-     var iduser=req.params.iduser;
-     var idpost=req.params.idpost;
+    var quiz=req.params.quiz;
+     var noimg=req.params.default;
+       var type=req.params.type;
+       var answer=req.params.answer;
+       var choice1=req.params.choice1;
+       var choice2=req.params.choice2;
+       var choice3=req.params.choice3;
+       var choice4=req.params.choice4;
     connection.query(
         'insert into comment(messege,imgcom,id_usercom,id_postcom,status) values(?,?,?,?,?)',
         [messege,imgcom,iduser,idpost,''],
