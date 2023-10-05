@@ -338,7 +338,7 @@ app.get('/selectmember',(req,res) =>{
 })
 
 
-  app.get('/insertquiznoimg/:quiz/:default/:type/:answer/:choice1/:choice2/:choice3/:choice4',(req,res) =>{
+  app.get('/insertquiznoimg/:quiz/:default/:type/:answer/:choice1/:choice2/:choice3/:choice4/:storyname/:textplain',(req,res) =>{
     var quiz=req.params.quiz;
      var noimg=req.params.default;
        var type=req.params.type;
@@ -347,9 +347,11 @@ app.get('/selectmember',(req,res) =>{
        var choice2=req.params.choice2;
        var choice3=req.params.choice3;
        var choice4=req.params.choice4;
+       var storyname=req.params.storyname;
+       var textplain=req.params.textplain;
     connection.query(
-        'insert into quiz(quiz,img,type,answer,choice1,choice2,choice3,choice4) values(?,?,?,?,?,?,?,?)',
-        [quiz,noimg,type,answer,choice1,choice2,choice3,choice4],
+        'insert into quiz(quiz,img,type,answer,choice1,choice2,choice3,choice4,storyname,textplain) values(?,?,?,?,?,?,?,?,?,?)',
+        [quiz,noimg,type,answer,choice1,choice2,choice3,choice4,storyname,textplain],
         function(err,results,fields){
             console.log(results )
             res.send(results)
