@@ -88,6 +88,19 @@ app.get('/selectmember',(req,res) =>{
     )
 }),
 
+         app.get('/selectquizcard',(req,res) =>{
+    connection.query(
+        'select * from listquiz ',
+    
+        function(err,results,fields){
+            console.log(results)
+            //res.send(results)
+            res.send(results);
+            //    res.send({"msg":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"})
+        }
+    )
+}),
+
           app.get('/selectchoice/:type',(req,res) =>{
                var type=req.params.type;
     connection.query(
