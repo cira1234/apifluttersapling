@@ -226,6 +226,23 @@ app.get('/selectmember',(req,res) =>{
     )
 }),
 
+        app.get('/checkanswer/:answer',(req,res) =>{
+            var answer=req.params.answer;
+    connection.query(
+        'select * from quiz where answer=? ',[answer],
+    
+        function(err,results,fields){
+            console.log(results)
+            //res.send(results)
+            res.send(results);
+              if(results.length==0){
+                res.send('false')
+              }
+            //    res.send({"msg":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"})
+        }
+    )
+}),
+
 
 
     
