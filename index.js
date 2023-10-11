@@ -232,9 +232,9 @@ app.get('/selectmember',(req,res) =>{
         'select * from quiz where answer=? ',[answer],
     
         function(err,results,fields){
-            console.log(results)
+            // console.log(results)
             //res.send(results)
-            res.send(results);
+            // res.send(results);
               if(results.length<=0){
                 res.send('false')
               }
