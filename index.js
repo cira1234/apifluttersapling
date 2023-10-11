@@ -238,6 +238,12 @@ app.get('/selectmember',(req,res) =>{
               if(results.length<=0){
                 res.send('false')
               }
+             else if(results.length>=1){
+             res.send(results)
+             res.send('true')
+             res.send(results);
+        }
+            
             //    res.send({"msg":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"})
         }
     )
