@@ -116,10 +116,11 @@ app.get('/selectmember',(req,res) =>{
 }),
 
 
-      app.get('/selectchoicestory/:story',(req,res) =>{
+      app.get('/selectchoicestory/:story/:idquiz',(req,res) =>{
                var story=req.params.story;
+          var idquiz=req.params.idquiz;
     connection.query(
-        'select * from quiz where storyname=?',[story],
+        'select * from quiz where storyname=? and id_quiz=?',[story,idquiz],
     
         function(err,results,fields){
             console.log(results)
