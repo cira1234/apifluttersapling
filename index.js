@@ -390,7 +390,7 @@ app.get('/selectmember',(req,res) =>{
 })
 
 
- app.get('/insertdsetpoint/:storyname/:iduser',(req,res) =>{
+ app.get('/insertsetpoint/:storyname/:iduser',(req,res) =>{
     var storyname=req.params.storyname;
      var iduser=req.params.iduser;
 
