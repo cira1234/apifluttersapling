@@ -390,6 +390,22 @@ app.get('/selectmember',(req,res) =>{
 })
 
 
+ app.get('/insertdsetpoint/:storyname/:iduser',(req,res) =>{
+    var storyname=req.params.storyname;
+     var iduser=req.params.iduser;
+
+    connection.query(
+        'insert into quizpoint(storyname,id_user) values(?,?)',
+        [storyname,iduser],
+        function(err,results,fields){
+            console.log(results )
+            res.send(results)
+              console.log('insert success');
+        }
+    )
+})
+
+
   app.get('/insertquiznoimg/:quiz/:default/:type/:answer/:choice1/:choice2/:choice3/:choice4/:storyname',(req,res) =>{
     var quiz=req.params.quiz;
      var noimg=req.params.default;
