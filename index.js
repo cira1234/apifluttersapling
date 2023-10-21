@@ -76,7 +76,7 @@ app.get('/selectmember',(req,res) =>{
 }),
 
 
-        app.get('/selecttypesearch',(req,res) =>{
+        app.get('/selectsearch',(req,res) =>{
     connection.query(
         'select * from typesearch ',
     
