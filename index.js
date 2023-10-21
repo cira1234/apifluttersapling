@@ -75,6 +75,20 @@ app.get('/selectmember',(req,res) =>{
     )
 }),
 
+
+        app.get('/selecttypesearch',(req,res) =>{
+    connection.query(
+        'select * from typesearch ',
+    
+        function(err,results,fields){
+            console.log(results)
+            //res.send(results)
+            res.send(results);
+            //    res.send({"msg":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"})
+        }
+    )
+}),
+
         app.get('/selectquiz',(req,res) =>{
     connection.query(
         'select * from quiz ',
