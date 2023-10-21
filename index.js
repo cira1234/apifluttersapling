@@ -420,6 +420,21 @@ app.get('/selectmember',(req,res) =>{
 })
 
 
+ app.get('/insertsettype/:nametype',(req,res) =>{
+    var type=req.params.nametype;
+    connection.query(
+        'insert into typesearch(type_video) values(?)',
+        [type],
+        function(err,results,fields){
+            console.log(results )
+            res.send(results)
+              console.log('insert success');
+        }
+    )
+})
+
+
+
   app.get('/insertquiznoimg/:quiz/:default/:type/:answer/:choice1/:choice2/:choice3/:choice4/:storyname',(req,res) =>{
     var quiz=req.params.quiz;
      var noimg=req.params.default;
