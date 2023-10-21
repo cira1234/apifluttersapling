@@ -420,7 +420,7 @@ app.get('/selectmember',(req,res) =>{
 })
 
 
- app.get('/insertsettype/:nametype',(req,res) =>{
+ app.get('/inserttype/:nametype',(req,res) =>{
     var type=req.params.nametype;
     connection.query(
         'insert into typesearch(type_video) values(?)',
