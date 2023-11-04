@@ -286,7 +286,24 @@ app.get('/selectmember',(req,res) =>{
     app.get('/selectfeedpost',(req,res) =>{
             var iduser=req.params.iduser
     connection.query(
-        'select * from post where img !=?  ',['default.jpg'],
+        'select * from post where img !=? and privacy =?  ',['default.jpg','0'],
+    
+        function(err,results,fields){
+            console.log(results)
+            //res.send(results)
+            res.send(results);
+              if(results.length==0){
+                res.send('false')
+              }
+            //    res.send({"msg":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"})
+        }
+    )
+}),
+
+     app.get('/selectfeedpostnoimg',(req,res) =>{
+            var iduser=req.params.iduser
+    connection.query(
+        'select * from post where img =? and privacy=?  ',['default.jpg','0'],
     
         function(err,results,fields){
             console.log(results)
