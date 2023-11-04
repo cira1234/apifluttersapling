@@ -244,7 +244,7 @@ app.get('/selectmember',(req,res) =>{
       app.get('/selectnoimg/:iduser',(req,res) =>{
             var iduser=req.params.iduser;
     connection.query(
-        'select * from post where id_userpost=? and img=? ',[iduser],'default.jpg',
+        'select * from post where id_userpost=? and img=? ',[iduser,'default.jpg'],
     
         function(err,results,fields){
             console.log(results)
