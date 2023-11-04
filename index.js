@@ -521,6 +521,22 @@ app.get('/selectmember',(req,res) =>{
     )
 })
 
+ app.get('/insertpostnoimg/:section/:question/:id',(req,res) =>{
+    var section=req.params.section;
+     var question=req.params.question;
+     var id=req.params.id;
+
+    connection.query(
+        'insert into post(section,textpost,img,id_userpost) values(?,?,?,?)',
+        [section,question,'default.jpg',id],
+        function(err,results,fields){
+            console.log(results )
+            res.send(results)
+              console.log('insert success');
+        }
+    )
+})
+
 
     app.get('/insertcomment/:messege/:imgcom/:idusercom/:idpostcom/:status',(req,res) =>{
     var messege=req.params.messege;
