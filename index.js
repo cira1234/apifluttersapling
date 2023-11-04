@@ -325,7 +325,7 @@ app.get('/selectmember',(req,res) =>{
     
     app.get('/selectvideo',(req,res) =>{
     connection.query(
-        'select * from videostudy ',
+        'select * from videostudy order by id_video ',
     
         function(err,results,fields){
             console.log(results)
