@@ -596,6 +596,29 @@ app.get('/selectmember',(req,res) =>{
     )
 }),
 
+        app.get('/private/:id',(req,res) =>{
+        var id=req.params.id;
+    connection.query(
+        'update post  set privacy=?  where id_post=?',['1',id],
+        function(err,results,fields){
+            console.log(results )
+            res.send(results)
+        }
+    )
+}),
+
+           app.get('/public/:id',(req,res) =>{
+        var id=req.params.id;
+    connection.query(
+        'update post  set privacy=?  where id_post=?',['0',id],
+        function(err,results,fields){
+            console.log(results )
+            res.send(results)
+        }
+    )
+}),
+
+
                app.get('/report/:id',(req,res) =>{
         var id=req.params.id;
     connection.query(
