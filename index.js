@@ -336,6 +336,19 @@ app.get('/selectmember',(req,res) =>{
     )
 }),
 
+     app.get('/selectvideoindex',(req,res) =>{
+    connection.query(
+        'select * from videostudy order by id_video limit 3 ',
+    
+        function(err,results,fields){
+            console.log(results)
+            // res.send(results)
+              res.send(results)
+            //    res.send({"msg":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"})
+        }
+    )
+}),
+
 
 
      app.get('/selectvideoid/:id',(req,res) =>{
