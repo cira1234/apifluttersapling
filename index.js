@@ -399,6 +399,20 @@ app.get('/selectmember',(req,res) =>{
     )
 }),
 
+       app.get('/selectvideoui/:name',(req,res) =>{
+           var namevideo=req.params.name;
+    connection.query(
+        'select * from videostudy where namevideo=? ',[namevideo],
+    
+        function(err,results,fields){
+            console.log(results)
+            // res.send(results)
+              res.send(results)
+            //    res.send({"msg":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"})
+        }
+    )
+}),
+
     app.get('/insertuser/:email/:pass/:name/:tel',(req,res) =>{
     var email=req.params.email;
      var pass=req.params.pass;
