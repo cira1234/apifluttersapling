@@ -75,8 +75,7 @@ app.get('/selectmember',(req,res) =>{
     )
 }),
 
-
-        app.get('/selectsearch',(req,res) =>{
+  app.get('/selectsearch',(req,res) =>{
     connection.query(
         'select * from typesearch ',
     
@@ -88,6 +87,7 @@ app.get('/selectmember',(req,res) =>{
         }
     )
 }),
+   
 
         app.get('/selectquiz',(req,res) =>{
     connection.query(
