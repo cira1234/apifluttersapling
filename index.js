@@ -448,6 +448,22 @@ app.get('/selectmember',(req,res) =>{
     )
 })
 
+ app.get('/insertcommentnoimg/:messege/:imgcom/:iduser/:idpost',(req,res) =>{
+    var messege=req.params.messege;
+     var imgcom=req.params.imgcom;
+     var iduser=req.params.iduser;
+     var idpost=req.params.idpost;
+    connection.query(
+        'insert into comment(messege,imgcom,id_usercom,id_postcom,status) values(?,?,?,?,?)',
+        [messege,imgcom,iduser,idpost,''],
+        function(err,results,fields){
+            console.log(results )
+            res.send(results)
+              console.log('insert success');
+        }
+    )
+})
+
    app.get('/insertcardquiz/:storyname/:textplain/:type/:idstory',(req,res) =>{
     var storyname=req.params.storyname;
      var textplain=req.params.textplain;
