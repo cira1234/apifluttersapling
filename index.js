@@ -212,8 +212,8 @@ app.get('/selectmember',(req,res) =>{
       app.get('/selectcomment/:idpost',(req,res) =>{
             var idpost=req.params.idpost;
     connection.query(
-        'SELECT id_com,messege,imgcom,name,imguser FROM comment INNER JOIN user ON id_usercom = id_user WHERE id_postcom=?',
-         [idpost],
+        'SELECT id_com,messege,imgcom,name,imguser FROM comment INNER JOIN user ON id_usercom = id_user WHERE id_postcom=? and imgcom!=?',
+         [idpost,'default.jpg'],
         function(err,results,fields){
             console.log(results)
             //res.send(results)
