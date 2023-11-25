@@ -148,6 +148,21 @@ app.get('/selectmember',(req,res) =>{
 }),
 
 
+     app.get('/selectvideosearch/:idtype',(req,res) =>{
+          var idtype=req.params.idtype;
+    connection.query(
+        'select * from videostudy inner join typesearch on typevideo = id_type where typesearch=?',[idtype],
+    
+        function(err,results,fields){
+            console.log(results)
+            //res.send(results)
+            res.send(results);
+            //    res.send({"msg":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"})
+        }
+    )
+}),
+
+
     app.get('/selectmember',(req,res) =>{
     connection.query(
         'select * from member ',
