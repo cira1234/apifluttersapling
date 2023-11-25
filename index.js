@@ -254,6 +254,23 @@ app.get('/selectmember',(req,res) =>{
     )
 }),
 
+      app.get('/selectsearch',(req,res) =>{
+            var iduser=req.params.iduser;
+    connection.query(
+        'select * from typesearch,
+    
+        function(err,results,fields){
+            console.log(results)
+            //res.send(results)
+            res.send(results);
+              if(results.length==0){
+                res.send('false')
+              }
+            //    res.send({"msg":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"})
+        }
+    )
+}),
+
       app.get('/selectnoimg/:iduser',(req,res) =>{
             var iduser=req.params.iduser;
     connection.query(
