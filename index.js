@@ -348,6 +348,23 @@ app.get('/selectmember',(req,res) =>{
     )
 }),
 
+           app.get('/selectpostreportnoimg',(req,res) =>{
+                
+    connection.query(
+        'select * from post where report>=? and img=? ',['1','default.jpg'],
+    
+        function(err,results,fields){
+            console.log(results)
+            //res.send(results)
+            res.send(results);
+              if(results.length==0){
+                res.send('false')
+              }
+            //    res.send({"msg":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"})
+        }
+    )
+}),
+
 
      app.get('/selectimguser/:iduser',(req,res) =>{
              var iduser=req.params.iduser;
