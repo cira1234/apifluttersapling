@@ -151,7 +151,7 @@ app.get('/selectmember',(req,res) =>{
      app.get('/selectvideosearch/:idtype',(req,res) =>{
           var idtype=req.params.idtype;
     connection.query(
-        'select * from videostudy inner join typesearch on typevideo = id_type where typesearch=?',[idtype],
+        'select * from videostudy inner join typesearch on typevideo = id_type where typevideo=?',[idtype],
     
         function(err,results,fields){
             console.log(results)
