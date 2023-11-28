@@ -527,14 +527,15 @@ app.get('/selectmember',(req,res) =>{
     )
 })
 
-   app.get('/insertcardquiz/:storyname/:textplain/:type/:idstory',(req,res) =>{
+   app.get('/insertcardquiz/:storyname/:textplain/:type/:idstory/:maxpoint',(req,res) =>{
     var storyname=req.params.storyname;
      var textplain=req.params.textplain;
      var type=req.params.type;
      var idstory=req.params.idstory;
+        var maxpoint=req.params.maxpoint;
     connection.query(
-        'insert into listquiz(storyname,textplain,type,id_storyquiz) values(?,?,?,?)',
-        [storyname,textplain,type,idstory],
+        'insert into listquiz(storyname,textplain,type,id_storyquiz,maxpoint) values(?,?,?,?,?)',
+        [storyname,textplain,type,idstory,maxpoint],
         function(err,results,fields){
             console.log(results )
             res.send(results)
