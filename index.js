@@ -139,6 +139,9 @@ app.get('/selectmember',(req,res) =>{
         'select *  from quiz inner join listquiz on listquiz.id = quiz.storyname WHERE listquiz.storyname =? and id_quiz =?',[story,idquiz],
     
         function(err,results,fields){
+            if(results.length==0){
+                   res.send('false');
+            }
             console.log(results)
             //res.send(results)
             res.send(results);
