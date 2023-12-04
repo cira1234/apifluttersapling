@@ -343,7 +343,7 @@ app.get('/selectmember',(req,res) =>{
                 res.send('false')
               }
              else if(results.length>=1){
-             res.send('true')
+             res.send(results)
         
         }
             
