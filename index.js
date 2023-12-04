@@ -330,6 +330,28 @@ app.get('/selectmember',(req,res) =>{
     )
 }),
 
+    app.get('/selectanswer',(req,res) =>{
+            var answer=req.params.answer;
+    connection.query(
+        'select answer from quiz   ',
+    
+        function(err,results,fields){
+            // console.log(results)
+            //res.send(results)
+            // res.send(results);
+              if(results.length<=0){
+                res.send('false')
+              }
+             else if(results.length>=1){
+             res.send('true')
+        
+        }
+            
+            //    res.send({"msg":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"})
+        }
+    )
+}),
+
 
 
     
