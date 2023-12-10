@@ -720,6 +720,19 @@ app.get('/selectmember',(req,res) =>{
     )
 }),
 
+         app.get('/updatepoint/:iduser/:idstory',(req,res) =>{
+        var iduser=req.params.iduser;
+        var idstory=req.params.idstory;
+        
+    connection.query(
+        'update quizpoint  set point=?  where id_user=?',[point+1,iduser],
+        function(err,results,fields){
+            console.log(results )
+            res.send(results)
+        }
+    )
+}),
+
 
          app.get('/banuser/:id',(req,res) =>{
         var id=req.params.id;
