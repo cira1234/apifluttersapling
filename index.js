@@ -739,9 +739,13 @@ app.get('/selectmember',(req,res) =>{
          app.get('/updatepoint/:iduser/:idstory/:point1/:point2/:point3/:point4',(req,res) =>{
         var iduser=req.params.iduser;
         var idstory=req.params.idstory;
+        var point1=req.params.point1;
+        var point2=req.params.point2;
+        var point3=req.params.point3;
+        var point4=req.params.point4;
         
     connection.query(
-        'update quizpoint  set point=?  where id_user=? and id_sto=?',[point+1,iduser,idstory],
+        'update quizpoint  set point=?  where id_user=? and id_sto=?',[point+point1+point2+point3+point4,iduser,idstory],
         function(err,results,fields){
             console.log(results )
             res.send(results)
