@@ -488,6 +488,22 @@ app.get('/selectmember',(req,res) =>{
     )
 }),
 
+     app.get('/selectquizpoint/:idstory/:iduser',(req,res) =>{
+           var idstory=req.params.idstory;
+         var iduser=req.params.iduser;
+    connection.query(
+        'select * from quizpoint where id_sto=? and id_user=? ',[idstory,iduser],
+    
+        function(err,results,fields){
+            console.log(results)
+            // res.send(results)
+              res.send(results)
+            //    res.send({"msg":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"})
+        }
+    )
+}),
+
+
        app.get('/selectvideoui/:name',(req,res) =>{
            var namevideo=req.params.name;
     connection.query(
