@@ -591,7 +591,7 @@ app.get('/selectmember',(req,res) =>{
      var iduser=req.params.iduser;
 
     connection.query(
-        'insert into quizpoint(storyname,id_user) values(?,?)',
+        'insert into quizpoint(id_sto,id_user) values(?,?)',
         [storyname,iduser],
         function(err,results,fields){
             console.log(results )
