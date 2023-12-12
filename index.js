@@ -736,13 +736,13 @@ app.get('/selectmember',(req,res) =>{
     )
 }),
 
-         app.get('/updatepoint1/:iduser/:idstory/:point1',(req,res) =>{
+         app.get('/updatepoint1/:iduser/:idstory/:total',(req,res) =>{
         var iduser=req.params.iduser;
         var idstory=req.params.idstory;
-        let point1=req.params.point1;
+        let total=req.params.total;
         
     connection.query(
-        'update quizpoint  set point=point+?  where id_user=? and id_sto=?',[point1,iduser,idstory],
+        'update quizpoint  set point=?  where id_user=? and id_sto=?',[total,iduser,idstory],
         function(err,results,fields){
             console.log(results )
             res.send(results)
@@ -750,49 +750,7 @@ app.get('/selectmember',(req,res) =>{
     )
 }),
 
-          app.get('/updatepoint2/:iduser/:idstory/:point2',(req,res) =>{
-        var iduser=req.params.iduser;
-        var idstory=req.params.idstory;
-        let point2=req.params.point2;
-        
-    connection.query(
-        'update quizpoint  set point=point+?  where id_user=? and id_sto=?',[point2,iduser,idstory],
-        function(err,results,fields){
-            console.log(results )
-            res.send(results)
-        }
-    )
-}),
-
-
-          app.get('/updatepoint3/:iduser/:idstory/:point3',(req,res) =>{
-        var iduser=req.params.iduser;
-        var idstory=req.params.idstory;
-        let point1=req.params.point3;
-        
-    connection.query(
-        'update quizpoint  set point=point+?  where id_user=? and id_sto=?',[point3,iduser,idstory],
-        function(err,results,fields){
-            console.log(results )
-            res.send(results)
-        }
-    )
-}),
-
-
-          app.get('/updatepoint4/:iduser/:idstory/:point4',(req,res) =>{
-        var iduser=req.params.iduser;
-        var idstory=req.params.idstory;
-        let point4=req.params.point4;
-        
-    connection.query(
-        'update quizpoint  set point=point+?  where id_user=? and id_sto=?',[point4,iduser,idstory],
-        function(err,results,fields){
-            console.log(results )
-            res.send(results)
-        }
-    )
-}),
+     
 
 
 
