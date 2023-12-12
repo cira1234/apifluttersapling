@@ -736,13 +736,13 @@ app.get('/selectmember',(req,res) =>{
     )
 }),
 
-         app.get('/updatepoint1/:iduser/:idstory/:point1/:point2/:point3/:point4',(req,res) =>{
+         app.get('/updatepoint/:iduser/:idstory/:point1/:point2/:point3/:point4',(req,res) =>{
         var iduser=req.params.iduser;
         var idstory=req.params.idstory;
         let point1=req.params.point1;
-             let point1=req.params.point2;
-             let point1=req.params.point3;
-             let point1=req.params.point4;
+             let point2=req.params.point2;
+             let point3=req.params.point3;
+             let point4=req.params.point4;
         
     connection.query(
         'update quizpoint  set point=?  where id_user=? and id_sto=?',[point1,iduser,idstory],
