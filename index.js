@@ -742,7 +742,7 @@ app.get('/selectmember',(req,res) =>{
         let point1=req.params.point1;
         
     connection.query(
-        'update quizpoint  set point=point+?  where id_user=? and id_sto=?',[point1,iduser,idstory],
+        'update quizpoint  set point=?  where id_user=? and id_sto=?',[point1,iduser,idstory],
         function(err,results,fields){
             console.log(results )
             res.send(results)
