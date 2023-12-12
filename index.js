@@ -585,6 +585,23 @@ app.get('/selectmember',(req,res) =>{
     )
 })
 
+  app.get('/insertcardwritequiz/:storyname/:textplain/:type/:idstory/:maxpoint',(req,res) =>{
+    var storyname=req.params.storyname;
+     var textplain=req.params.textplain;
+     var type=req.params.type;
+     var idstory=req.params.idstory;
+        var maxpoint=req.params.maxpoint;
+    connection.query(
+        'insert into listquizwrite(storyname_write,textplain_write,type_write,id_storywrite,maxpoint) values(?,?,?,?,?)',
+        [storyname,textplain,type,idstory,maxpoint],
+        function(err,results,fields){
+            console.log(results )
+            res.send(results)
+              console.log('insert success');
+        }
+    )
+})
+
 
  app.get('/insertsetpoint/:storyname/:iduser',(req,res) =>{
     var storyname=req.params.storyname;
