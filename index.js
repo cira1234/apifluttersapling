@@ -660,6 +660,28 @@ app.get('/selectmember',(req,res) =>{
 })
 
 
+ app.get('/insertquizwrite/:quiz/:default/:type/:answer/:choice1/:choice2/:choice3/:choice4/:storyname',(req,res) =>{
+    var quiz=req.params.quiz;
+     var noimg=req.params.default;
+       var type=req.params.type;
+       var answer=req.params.answer;
+       var choice1=req.params.choice1;
+       var choice2=req.params.choice2;
+       var choice3=req.params.choice3;
+       var choice4=req.params.choice4;
+       var storyname=req.params.storyname;
+    connection.query(
+        'insert into quizwrite(quiz_write,img,type,answer,choice1,choice2,choice3,choice4,storyname) values(?,?,?,?,?,?,?,?,?)',
+        [quiz,noimg,type,answer,choice1,choice2,choice3,choice4,storyname],
+        function(err,results,fields){
+            console.log(results )
+            res.send(results)
+              console.log('insert success');
+        }
+    )
+})
+
+
 
  app.get('/insertprofile/:imguser/:iduser',(req,res) =>{
      var imguser=req.params.imguser;
