@@ -736,7 +736,7 @@ app.get('/selectmember',(req,res) =>{
     )
 }),
 
-         app.get('/updatepoint1/:iduser/:idstory/:total',(req,res) =>{
+         app.get('/updatepoint/:iduser/:idstory/:total',(req,res) =>{
         var iduser=req.params.iduser;
         var idstory=req.params.idstory;
         let total=req.params.total;
