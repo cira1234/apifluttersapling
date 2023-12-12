@@ -655,7 +655,7 @@ app.get('/selectmember',(req,res) =>{
     )
 })
 
- app.get('/insertquizwritenoimg/:quiz/:default/:type/:answer/:choice1/:choice2/:choice3/:choice4/:storyname',(req,res) =>{
+ app.get('/insertquizwritenoimg/:quiz/:default/:type/:answer/:storyname',(req,res) =>{
     var quiz=req.params.quiz;
      var noimg=req.params.default;
        var type=req.params.type;
@@ -666,7 +666,7 @@ app.get('/selectmember',(req,res) =>{
        var choice4=req.params.choice4;
        var storyname=req.params.storyname;
     connection.query(
-        'insert into quizwrite(quiz_write,img,type,answer,choice1,choice2,choice3,choice4,storyname) values(?,?,?,?,?,?,?,?,?)',
+        'insert into quizwrite(quiz_write,img,type,answer,storyname) values(?,?,?,?,?)',
         [quiz,noimg,type,answer,choice1,choice2,choice3,choice4,storyname],
         function(err,results,fields){
             console.log(results )
