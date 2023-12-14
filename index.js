@@ -821,7 +821,7 @@ app.get('/selectmember',(req,res) =>{
            app.get('/autostatus/:id',(req,res) =>{
         var id=req.params.id;
     connection.query(
-        'update user  set status=?  where email=?',['1',id],
+        'update user  set pregis=?  where email=?',['1',id],
         function(err,results,fields){
             console.log(results )
             res.send(results)
