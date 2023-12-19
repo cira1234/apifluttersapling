@@ -165,7 +165,7 @@ app.get('/selectmember',(req,res) =>{
             //    res.send({"msg":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"})
         }
     )
-
+}),
 
 
 
@@ -1072,4 +1072,4 @@ app.get('/getid/:email/:pass',(req,res) =>{
         }
     )
 }),
-app.listen(process.env.POR || 3000) 
+app.listen(process.env.POR || 3000)
