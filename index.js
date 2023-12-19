@@ -126,7 +126,7 @@ app.get('/selectmember',(req,res) =>{
           var iduser=req.params.iduser;
                  var sto=req.params.storyname;
     connection.query(
-        'select * from write where id_user=? and id_sto=?',[iduser,sto],
+        'select * from writepoint where id_user=? and id_sto=?',[iduser,sto],
     
         function(err,results,fields){
             console.log(results)
