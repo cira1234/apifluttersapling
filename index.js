@@ -923,7 +923,7 @@ app.get('/selectmember',(req,res) =>{
              let index=req.params.index;
         
     connection.query(
-        'update quizpoint  set point=?,maxpoint_id=?  where id_user=? and id_sto=?',[total,index,iduser,idstory],
+        'update writepoint set point=?,maxpoint_id=?  where id_user=? and id_sto=?',[total,index,iduser,idstory],
         function(err,results,fields){
             console.log(results )
             res.send(results)
