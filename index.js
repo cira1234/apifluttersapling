@@ -374,7 +374,7 @@ app.get('/selectmember',(req,res) =>{
        app.get('/checkanswerwrite/:answer',(req,res) =>{
             var answer=req.params.answer;
     connection.query(
-        'select * from quizwrite where answer LIKE ? ',['%'+answer+'%'],
+        'select * from quizwrite where answer LIKE ? ',[answer],
     
         function(err,results,fields){
             // console.log(results)
