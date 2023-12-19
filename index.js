@@ -167,20 +167,20 @@ app.get('/selectmember',(req,res) =>{
     )
 
 
-             app.get('/showmaxpoint/:iduser/:storyname',(req,res) =>{
-          var iduser=req.params.iduser;
-                 var sto=req.params.storyname;
-    connection.query(
-        'select * from quizpoint where id_user=? and id_sto=?',[iduser,sto],
+//              app.get('/showmaxpoint/:iduser/:storyname',(req,res) =>{
+//           var iduser=req.params.iduser;
+//                  var sto=req.params.storyname;
+//     connection.query(
+//         'select * from quizpoint where id_user=? and id_sto=?',[iduser,sto],
     
-        function(err,results,fields){
-            console.log(results)
-            //res.send(results)
-            res.send(results);
-            //    res.send({"msg":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"})
-        }
-    )
-}),
+//         function(err,results,fields){
+//             console.log(results)
+//             //res.send(results)
+//             res.send(results);
+//             //    res.send({"msg":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"})
+//         }
+//     )
+// }),
 
 
     app.get('/selectmember',(req,res) =>{
