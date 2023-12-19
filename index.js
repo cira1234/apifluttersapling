@@ -370,6 +370,29 @@ app.get('/selectmember',(req,res) =>{
     )
 }),
 
+
+       app.get('/checkanswerwrite/:answer',(req,res) =>{
+            var answer=req.params.answer;
+    connection.query(
+        'select * from quizwrite where answer=? ',[answer],
+    
+        function(err,results,fields){
+            // console.log(results)
+            //res.send(results)
+            // res.send(results);
+              if(results.length<=0){
+                res.send('false')
+              }
+             else if(results.length>=1){
+             res.send('true')
+        
+        }
+            
+            //    res.send({"msg":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"})
+        }
+    )
+}),
+
     app.get('/selectanswer',(req,res) =>{
             var answer=req.params.answer;
     connection.query(
