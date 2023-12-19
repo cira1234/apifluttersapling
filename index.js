@@ -170,6 +170,25 @@ app.get('/selectmember',(req,res) =>{
 }),
 
 
+          app.get('/selectwritequiz/:story/:idquiz',(req,res) =>{
+               var story=req.params.story;
+          var idquiz=req.params.idquiz;
+    connection.query(
+        'select *  from quizwrite inner join listquizwrite on listquizwrite.id_write = quizwrite.storyname WHERE quizwrite.storyname =? and id_write_quiz =?',[story,idquiz],
+    
+        function(err,results,fields){
+            if(results.length==0){
+                   res.send('false');
+            }
+            console.log(results)
+            //res.send(results)
+            res.send(results);
+            //    res.send({"msg":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"})
+        }
+    )
+}),
+
+
      app.get('/selectvideosearch/:idtype',(req,res) =>{
           var idtype=req.params.idtype;
     connection.query(
