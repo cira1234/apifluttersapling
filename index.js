@@ -682,6 +682,23 @@ app.get('/selectmember',(req,res) =>{
 })
 
 
+ app.get('/insertsetpointwrite/:storyname/:iduser',(req,res) =>{
+    var storyname=req.params.storyname;
+     var iduser=req.params.iduser;
+
+    connection.query(
+        'insert into quizpoint(id_sto,id_user) values(?,?)',
+        [storyname,iduser],
+        function(err,results,fields){
+            console.log(results )
+            res.send(results)
+              console.log('insert success');
+        }
+    )
+})
+
+
+
  app.get('/inserttype/:nametype',(req,res) =>{
     var type=req.params.nametype;
     connection.query(
@@ -869,6 +886,22 @@ app.get('/selectmember',(req,res) =>{
 }),
 
          app.get('/updatepoint/:iduser/:idstory/:total/:index',(req,res) =>{
+        var iduser=req.params.iduser;
+        var idstory=req.params.idstory;
+        let total=req.params.total;
+             let index=req.params.index;
+        
+    connection.query(
+        'update quizpoint  set point=?,maxpoint_id=?  where id_user=? and id_sto=?',[total,index,iduser,idstory],
+        function(err,results,fields){
+            console.log(results )
+            res.send(results)
+        }
+    )
+}),
+
+
+          app.get('/updatepointwrite/:iduser/:idstory/:total/:index',(req,res) =>{
         var iduser=req.params.iduser;
         var idstory=req.params.idstory;
         let total=req.params.total;
