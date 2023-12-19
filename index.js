@@ -61,6 +61,8 @@ app.get('/selectmember',(req,res) =>{
     )
 }),
 
+ 
+
 
     app.get('/selectuser',(req,res) =>{
     connection.query(
@@ -155,6 +157,21 @@ app.get('/selectmember',(req,res) =>{
           var idtype=req.params.idtype;
     connection.query(
         'select * from videostudy inner join typesearch on typevideo = id_type where typevideo=?',[idtype],
+    
+        function(err,results,fields){
+            console.log(results)
+            //res.send(results)
+            res.send(results);
+            //    res.send({"msg":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"})
+        }
+    )
+
+
+             app.get('/showmaxpoint/:iduser/:storyname',(req,res) =>{
+          var iduser=req.params.iduser;
+                 var sto=req.params.storyname;
+    connection.query(
+        'select * from quizpoint where id_user=? and id_sto=?',[iduser,sto],
     
         function(err,results,fields){
             console.log(results)
