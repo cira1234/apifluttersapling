@@ -174,7 +174,7 @@ app.get('/selectmember',(req,res) =>{
                var story=req.params.story;
           var idquiz=req.params.idquiz;
     connection.query(
-        'select *  from quizwrite inner join listquizwrite on listquizwrite.id_write = quizwrite.storyname WHERE quizwrite.storyname =? and id_write_quiz =?',[story,idquiz],
+        'select *  from quizwrite inner join listquizwrite on id_write = quizwrite.storyname WHERE quizwrite.storyname=? and id_write_quiz=?',[story,idquiz],
     
         function(err,results,fields){
             if(results.length==0){
