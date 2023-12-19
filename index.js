@@ -778,6 +778,21 @@ app.get('/selectmember',(req,res) =>{
 })
 
 
+ app.get('/insertcomment/:maxpoint',(req,res) =>{
+    var maxpoint=req.params.maxpoint;
+    connection.query(
+        'insert into quizpoint(maxpoint_id) values(?)',
+        
+        [messege,imgcom,iduser,idpostcom],
+        function(err,results,fields){
+            console.log(results )
+            res.send(results)
+              console.log('insert success');
+        }
+    )
+})
+
+
     app.get('/updateprofile/:imguser/:id',(req,res) =>{
         var imguser=req.params.imguser;
         var id=req.params.id;
@@ -790,13 +805,14 @@ app.get('/selectmember',(req,res) =>{
     )
 }),
 
-         app.get('/updatepoint/:iduser/:idstory/:total',(req,res) =>{
+         app.get('/updatepoint/:iduser/:idstory/:total/:index',(req,res) =>{
         var iduser=req.params.iduser;
         var idstory=req.params.idstory;
         let total=req.params.total;
+             let index=req.params.index;
         
     connection.query(
-        'update quizpoint  set point=?  where id_user=? and id_sto=?',[total,iduser,idstory],
+        'update quizpoint  set point=?,maxpoint_id=?  where id_user=? and id_sto=?',[total,index,iduser,idstory],
         function(err,results,fields){
             console.log(results )
             res.send(results)
