@@ -151,6 +151,19 @@ app.get('/selectmember',(req,res) =>{
     )
 }),
 
+       app.get('/selectquizcardwrite',(req,res) =>{
+    connection.query(
+        'select * from listquizwrite ',
+    
+        function(err,results,fields){
+            console.log(results)
+            //res.send(results)
+            res.send(results);
+            //    res.send({"msg":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"})
+        }
+    )
+}),
+
           app.get('/selectchoice/:type',(req,res) =>{
                var type=req.params.type;
     connection.query(
