@@ -627,6 +627,22 @@ app.get('/selectmember',(req,res) =>{
 })
 
 
+  app.get('/insertuserpost',(req,res) =>{
+
+      const {email,pass}=req.body;
+         
+    connection.query(
+        'insert into user(email,password,name,tel,imguser,pregis,active,status) values(?,?,?,?,?,?,?,?)',
+        [email,pass,'0','0','default.png','0','0','0'],
+        function(err,results,fields){
+            console.log(results )
+            res.send(results)
+              console.log('insert success');
+        }
+    )
+})
+
+
 
     app.get('/insertcomment/:messege/:imgcom/:iduser/:idpost',(req,res) =>{
     var messege=req.params.messege;
