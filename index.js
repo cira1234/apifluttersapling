@@ -627,7 +627,7 @@ app.get('/selectmember',(req,res) =>{
 })
 
 
-  app.get('/insertuserpost',(req,res) =>{
+  app.post('/insertuserpost',(req,res) =>{
 
       const {email,pass}=req.body;
          
