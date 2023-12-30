@@ -627,20 +627,7 @@ app.get('/selectmember',(req,res) =>{
 })
 
 
-  app.post('/insertuserpost',(req,res) =>{
 
-      const {email,pass}=req.body;
-         
-    connection.query(
-        'insert into user(email,password,name,tel,imguser,pregis,active,status) values(?,?,?,?,?,?,?,?)',
-        [email,pass,'0','0','default.png','0','0','0'],
-        function(err,results,fields){
-            console.log(results )
-            res.send(results)
-              console.log('insert success');
-        }
-    )
-})
 
 
 
