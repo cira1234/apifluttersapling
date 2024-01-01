@@ -1176,7 +1176,7 @@ app.get('/getid/:email/:pass',(req,res) =>{
           const a=4;
         const b=5;
     connection.query(
-      'select id_user from user where email=? and password=? and pregis=1',[email,pass],
+      'select id_user from user where email=? and password=? and pregis=1 and status=0',[email,pass],
         // res.send("foundaccount"),
         function(err,results,fields){
         
