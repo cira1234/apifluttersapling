@@ -1133,7 +1133,6 @@ app.get('/getid/:email/:pass',(req,res) =>{
 
               app.get('/editnameuser/:name/:id',(req,res) =>{
              var nameuser=req.params.name;
-         
              var id=req.params.id;
     connection.query(
         'update user set name=? where id_user=?',[nameuser,id],
