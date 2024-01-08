@@ -1131,6 +1131,21 @@ app.get('/getid/:email/:pass',(req,res) =>{
 }),
 
 
+              app.get('/editnameuser/:name/:id',(req,res) =>{
+             var nameuser=req.params.name;
+         
+             var id=req.params.id;
+    connection.query(
+        'update user set name=? where id_user=?',[nameuser,id],
+        function(err,results,fields){
+            console.log(results )
+            res.send(results)
+        }
+    )
+}),
+
+
+
 //        app.get('/editprofile/:imguser/:iduser',(req,res) =>{
 //              var imguser=req.params.imguser;
 //              var iduser=req.params.iduser;
