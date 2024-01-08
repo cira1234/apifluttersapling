@@ -1090,6 +1090,18 @@ app.get('/deleteuser/:id',(req,res) =>{
 }),
 
 
+            app.get('/checkemailsum/:email',(req,res) =>{
+        var email=req.params.email;
+    connection.query(
+        'select * from user where email=?',[email],
+        function(err,results,fields){
+            console.log(results )
+            res.send(results)
+        }
+    )
+}),
+
+
 
     
 app.get('/getid/:email/:pass',(req,res) =>{
