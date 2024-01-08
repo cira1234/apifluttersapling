@@ -1090,17 +1090,7 @@ app.get('/deleteuser/:id',(req,res) =>{
 }),
 
 
-            app.get('/checkemailsum/:email',(req,res) =>{
-        var email=req.params.email;
-    connection.query(
-        'select * from user where email=?',[email],
-        function(err,results,fields){
-            console.log(results )
-            res.send(results)
-        }
-    )
-}),
-
+     
 
 
     
@@ -1216,6 +1206,32 @@ app.get('/getid/:email/:pass',(req,res) =>{
     else if(results.length>=1){
         // res.send(results)
         res.send('true')
+          // res.send(results);
+    }
+        }
+    )
+}),
+
+
+
+         app.get('/checkemailsum/:email',(req,res) =>{
+          var email=req.params.email;
+             
+    connection.query(
+      'select * from user where email=?',[email],
+        // res.send("foundaccount"),
+        function(err,results,fields){
+        
+                if(email=="Admin69@gmail.com" && pass=="090165"){
+                   res.send('admin')
+               }
+               else if(results.length==0){
+                res.send('notsum')
+        
+            }
+    else if(results.length>=1){
+        // res.send(results)
+        res.send('sum')
           // res.send(results);
     }
         }
