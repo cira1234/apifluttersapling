@@ -1237,4 +1237,29 @@ app.get('/getid/:email/:pass',(req,res) =>{
         }
     )
 }),
+
+         app.get('/forgotpassword/:email/:password',(req,res) =>{
+          var email=req.params.email;
+             var password=req.params.password;
+             
+    connection.query(
+      'update user set password=? where email=?',[password,email],
+        // res.send("foundaccount"),
+        function(err,results,fields){
+        
+                if(email=="Admin69@gmail.com" && pass=="090165"){
+                   res.send('admin')
+               }
+               else if(results.length==0){
+                res.send('setfail')
+        
+            }
+    else if(results.length>=1){
+        // res.send(results)
+        res.send('setok')
+          // res.send(results);
+    }
+        }
+    )
+}),
 app.listen(process.env.POR || 3000)
