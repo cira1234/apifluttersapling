@@ -179,7 +179,7 @@ app.get('/selectmember',(req,res) =>{
 }),
 
 
-      app.get('/selectchoicestory/:story/:idquiz',(req,res) =>{
+      app.get('/selectchoicestory/:story',(req,res) =>{
                var story=req.params.story;
           var idquiz=req.params.idquiz;
     connection.query(
