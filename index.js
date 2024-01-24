@@ -221,7 +221,7 @@ app.get('/selectmember',(req,res) =>{
 }),
 
 
-          app.get('/selectwritequiz/:story/:idquiz',(req,res) =>{
+          app.get('/selectwritequiz/:story',(req,res) =>{
                var story=req.params.story;
           var idquiz=req.params.idquiz;
     connection.query(
