@@ -131,10 +131,13 @@ app.get('/selectmember',(req,res) =>{
         'select * from quizpoint where id_user=? and id_sto=?',[iduser,sto],
     
         function(err,results,fields){
-            console.log(results)
-            //res.send(results)
-            res.send(results);
-            //    res.send({"msg":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"})
+                if(results.length>=1){
+                   res.send('havepoint')
+               }
+               else if(results.length==0){
+                res.send('nothavepoint')
+        
+            }
         }
     )
 }),
