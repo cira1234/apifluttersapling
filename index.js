@@ -143,6 +143,25 @@ app.get('/selectmember',(req,res) =>{
 }),
 
 
+                   app.get('/showsumpointendwrite/:iduser/:storyname',(req,res) =>{
+          var iduser=req.params.iduser;
+                 var sto=req.params.storyname;
+    connection.query(
+        'select * from writepoint where id_user=? and id_sto=?',[iduser,sto],
+    
+        function(err,results,fields){
+                if(results.length>=1){
+                   res.send('havepoint')
+               }
+               else if(results.length==0){
+                res.send('nothavepoint')
+        
+            }
+        }
+    )
+}),
+
+
 
     
             app.get('/showmaxpointwrite/:iduser/:storyname',(req,res) =>{
