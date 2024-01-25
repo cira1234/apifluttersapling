@@ -1085,6 +1085,19 @@ app.get('/deleteuser/:id',(req,res) =>{
     )
 }),
 
+app.get('/deletequizpoint/:id',(req,res) =>{
+        var id=req.params.id;
+    connection.query(
+        'delete from quizpoint where id_user=?',[id],
+        function(err,results,fields){
+            console.log(results )
+            res.send(results)
+        }
+    )
+}),
+
+
+        
     app.get('/deletepost/:id',(req,res) =>{
         var id=req.params.id;
     connection.query(
