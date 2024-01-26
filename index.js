@@ -1109,6 +1109,18 @@ app.get('/deletequizpoint/:id',(req,res) =>{
 }),
 
 
+            app.get('/deletevideo/:id',(req,res) =>{
+        var id=req.params.id;
+    connection.query(
+        'delete from videostudy where id_video=?',[id],
+        function(err,results,fields){
+            console.log(results )
+            res.send(results)
+        }
+    )
+}),
+
+
         
     app.get('/deletepost/:id',(req,res) =>{
         var id=req.params.id;
