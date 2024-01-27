@@ -1110,6 +1110,18 @@ app.get('/deletequizpoint/:id',(req,res) =>{
 }),
 
 
+           app.get('/deletequizchoice/:storyname',(req,res) =>{
+        var storyname=req.params.storyname;
+    connection.query(
+        'delete from quiz where storyname=?',[storyname],
+        function(err,results,fields){
+            console.log(results )
+            res.send(results)
+        }
+    )
+}),
+
+
         app.get('/deletewritepoint/:id',(req,res) =>{
         var id=req.params.id;
     connection.query(
