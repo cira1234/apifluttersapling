@@ -1101,7 +1101,7 @@ app.get('/deletequizpoint/:id',(req,res) =>{
         app.get('/deletequiz/:id',(req,res) =>{
         var id=req.params.id;
     connection.query(
-        'delete from quiz where id_quiz=?',[id],
+        'delete from listquiz where id=?',[id],
         function(err,results,fields){
             console.log(results )
             res.send(results)
@@ -1109,6 +1109,30 @@ app.get('/deletequizpoint/:id',(req,res) =>{
     )
 }),
 
+
+           app.get('/deletequizwrite/:id',(req,res) =>{
+        var id=req.params.id;
+    connection.query(
+        'delete from listquizwrite where id_write=?',[id],
+        function(err,results,fields){
+            console.log(results )
+            res.send(results)
+        }
+    )
+}),
+
+           app.get('/deletequizwritechoice/:storyname',(req,res) =>{
+        var storyname=req.params.storyname;
+    connection.query(
+        'delete from quizwrite where id_write_quiz=?',[storyname],
+        function(err,results,fields){
+            console.log(results )
+            res.send(results)
+        }
+    )
+}),
+
+        
 
            app.get('/deletequizchoice/:storyname',(req,res) =>{
         var storyname=req.params.storyname;
