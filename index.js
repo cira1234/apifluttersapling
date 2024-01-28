@@ -508,7 +508,7 @@ app.get('/selectmember',(req,res) =>{
      app.get('/selectfeedpostnoimg',(req,res) =>{
             var iduser=req.params.iduser
     connection.query(
-        'select * from post where img =? and privacy=?  ',['default.jpg','0'],
+        'select * from post  inner join user on id_userpost = id_user where img =? and privacy=?  ',['default.jpg','0'],
     
         function(err,results,fields){
             console.log(results)
