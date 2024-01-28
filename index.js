@@ -526,7 +526,7 @@ app.get('/selectmember',(req,res) =>{
         app.get('/selectpostreport',(req,res) =>{
                 
     connection.query(
-        'select * from post where report>=? and img!=? ',['1','default.jpg'],
+        'select * from post inner join user on id_userpost=id_user where report>=? and img!=? ',['1','default.jpg'],
     
         function(err,results,fields){
             console.log(results)
